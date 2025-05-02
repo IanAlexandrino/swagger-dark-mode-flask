@@ -1,5 +1,3 @@
-# swagger-dark-mode-flask
-
 ## Instruções para aplicar o tema escuro no Swagger UI (Flask)
 
 Siga os passos abaixo para customizar o Swagger UI do Flask com alguns temas escuros.
@@ -12,7 +10,38 @@ Repositórios:
 
 ---
 
-### 1. Localizar o template do Swagger UI
+### 1. Criar pasta static
+
+Na Raiz do seu projeto Flask ou dentro da pasta principal crie uma pasta static e cole o tema ou os temas que você quer testar:
+
+- Pasta raiz:
+
+```bash
+my_flask_app/
+├── app.py
+├── static/
+│   ├── theme-dark.css
+│   ├── universal-dark.css
+│   └── one-dark.css
+└── venv/
+```
+
+- Pasta principal:
+
+```bash
+my_flask_app/
+├── my_app/
+│   ├── __init__.py
+│   └── static/
+│       ├── theme-dark.css
+│       ├── universal-dark.css
+│       └── one-dark.css
+├── app.py
+└── venv/
+```
+
+
+### 2. Localizar o template do Swagger UI
 
 O arquivo a ser editado encontra-se em:
 
@@ -28,14 +57,14 @@ O arquivo a ser editado encontra-se em:
 /venv/lib/python3.10/site-packages/flask_swagger_ui/templates
 ```
 
-### 2. Abrir o arquivo index.template.html
+### 3. Abrir o arquivo index.template.html
 
-- 2.1. Navegue até a pasta acima
-- 2.2. Abra o arquivo **index.template.html**
+- 3.1. Navegue até a pasta acima
+- 3.2. Abra o arquivo **index.template.html**
 
-### 3. Substituir o conteúdo pelo template customizado
+### 4. Substituir o conteúdo pelo template customizado
 
-Copie e cole todo o conteúdo abaixo dentro de **index.template.html**, substituindo o que já existe:
+Copie e cole todo o conteúdo abaixo dentro de **index.template.html**, substituindo o que já existe e ajustando o nome do tema que vovê quer usar:
 
 ```bash
 <!DOCTYPE html>
@@ -71,7 +100,7 @@ Copie e cole todo o conteúdo abaixo dentro de **index.template.html**, substitu
       // 2) Só depois que o DOM existir, injete o seu tema
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      // Exemplo: troque 'theme-dark.css' pelo tema desejado (por ex. 'theme-dark.css', 'universal-dark.css')
+      // Exemplo: troque '<nome-do-tema>' pelo tema desejado (por ex. 'theme-dark', 'universal-dark', 'dracula')
       link.href = '/static/<nome-do-tema>.css';
       document.head.appendChild(link);
 
